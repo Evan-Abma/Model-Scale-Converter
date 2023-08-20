@@ -13,6 +13,16 @@ body {
     gap: 15px;
 }
 
+input, select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: white;
+    transition: background-color 0.3s;
+}
+
 .input-section, .output-section {
     display: flex;
     flex-direction: column;
@@ -21,7 +31,12 @@ body {
 
 .real-life-size {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.flex-container {
+    display: flex;
     gap: 10px;
 }
 
@@ -33,18 +48,11 @@ body {
     margin-bottom: 20px;
 }
 
-input, select {
-    padding: 10px;
-    border: 1px solid #555;
-    background-color: #444;
-    color: white;
-    transition: background-color 0.3s;
-}
-
 input:focus, select:focus {
     background-color: #555;
     outline: none;
 }
+
 h1 {
     text-align: center;
     color: #FFF;
@@ -52,6 +60,7 @@ h1 {
     font-family: Arial, sans-serif;
     background-color: #333;
 }
+
 #resetBtn {
     background-color: #555;
     color: #FFF;
@@ -59,8 +68,12 @@ h1 {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%;
 }
 
-#feet, #inches, #fractions {
-    width: 138px;
+/* Mobile media query */
+@media only screen and (max-width: 600px) {
+    .real-life-size {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

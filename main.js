@@ -6,6 +6,16 @@ const convertedValueInput = document.getElementById('convertedValue');
 const outputValueInput = document.getElementById('outputValue');
 const outputUnitDropdown = document.getElementById('outputUnit');
 
+function simplifyFraction(numerator, denominator = 16) {
+    const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+    const divisor = gcd(numerator, denominator);
+
+    return {
+        numerator: numerator / divisor,
+        denominator: denominator / divisor
+    };
+}
+
 function fractionToDecimal(fraction) {
     const [numerator, denominator] = fraction.split("/").map(Number);
 
@@ -47,12 +57,22 @@ function reverseCalculate() {
     let fractions = (realLifeSizeInches - (feet * 12 + inches)).toFixed(2); // As decimal fraction
 
     // Convert the decimal fraction to a common fraction (out of 16 for the desired precision)
-    let fraction = Math.round(fractions * 16) + "/16";
+     let fractionParts = simplifyFraction(Math.round(fractions * 16));
+
+    let fraction;
+    if (fractionParts.numerator === 0) {
+        fraction = ""; // If fraction is 0, we'll keep it empty
+    } else if (fractionParts.numerator === fractionParts.denominator) {
+        inches += 1; // Increment the inches if fraction is a whole
+        fraction = "";
+    } else {
+        fraction = `${fractionParts.numerator}/${fractionParts.denominator}`;
+    }
 
     // Set the values to the input cells
     feetInput.value = feet;
     inchesInput.value = inches;
-    fractionsInput.value = fraction === "0/16" ? "" : fraction; // Do not display "0/16"
+    fractionsInput.value = fraction;
 }
 
 const calculate = () => {

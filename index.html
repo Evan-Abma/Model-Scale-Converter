@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Scale Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Model Scale Converter</h1>
+    <div class="container">
+        <label for="scale">Model Scale:</label>
+        <select id="scale">
+            <option value="3.5">HO scale (1:87.1)</option>
+            <option value="0.1145">Z scale (1:220)</option>
+            <option value="0.1588">N scale (1:160)</option>
+            <option value="4">OO scale (1:76.2)</option>
+            <option value="0.5292">O scale (1:48)</option>
+            <option value="2.1167">1 in scale (1:12)</option>
+        </select>
+
+        <div class="input-section">
+            <div class="real-life-size">
+                <input type="number" id="feet" placeholder="Feet">
+                <input type="number" id="inches" placeholder="Inches">
+                <input type="text" id="fractions" placeholder="Fractions">
+            </div>
+        </div>
+
+        <div class="output-section">
+            <label for="outputValue">Real Life Size:</label>
+            <input type="text" id="outputValue" placeholder="Output Value" oninput="reverseCalculate()">
+            <select id="outputUnit">
+                <option value="mm">mm</option>
+                <option value="cm">cm</option>
+                <option value="m">m</option>
+                <option value="inches">inches</option>
+                <option value="decimal-ft">decimal ft</option>
+            </select>
+        </div>
+        <div class="center-container">
+            <button id="resetBtn">Reset</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-section, .output-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.real-life-size {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+input:focus, select:focus {
+    background-color: #555;
+    outline: none;
+}
+h1 {
+    text-align: center;
+    color: #FFF;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+}
+#resetBtn {
+    background-color: #555;
+    color: #FFF;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
